@@ -101,4 +101,10 @@
     <string name="supporting_text">Support_Text</string>
     <string name="action">Action</string>
     <string name="switch_label">Switch LAbel</string>
+    <string name="select_product_type">Select Product Type</string>
+    <string name="enter_product_name">Product Name</string>
+    <string name="enter_selling_price">Selling Price</string>
+    <string name="enter_tax_rate">Tax Rate</string>
+    <string name="upload_image">Image</string>
+    <string name="submit">Submit</string>
 </resources>

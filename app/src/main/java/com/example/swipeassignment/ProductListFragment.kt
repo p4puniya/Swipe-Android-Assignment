@@ -77,10 +77,8 @@ class ProductListFragment : Fragment() {
             }
         })
 
-        // Retrieve the boolean value from the arguments
+        // Show Internet Connectivity
         val booleanValue = arguments?.getBoolean("BOOLEAN_KEY", false) ?: false
-
-        // Now you can use the boolean value in the fragment
         if (booleanValue) {
             connectivityStatus.visibility = View.INVISIBLE
         } else {
