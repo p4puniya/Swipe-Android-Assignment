@@ -14,19 +14,18 @@ import com.google.android.material.imageview.ShapeableImageView
 class ProductListItemAdapter ( var productList: List<ProductListItem>): RecyclerView.Adapter<ProductListItemAdapter.MyViewHolder>(){
 
     private var filteredList: List<ProductListItem> = productList
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.product_item, parent, false)
         return MyViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem= productList[position]
+        val currentItem= filteredList[position]
 
         // Load product image using Glide
-        if (!currentItem.product_image.isNullOrBlank()) {
+        if (!currentItem.image.isNullOrBlank()) {
             Glide.with(holder.itemView.context)
-                .load(currentItem.product_image)
+                .load(currentItem.image)
                 .placeholder(R.drawable.default_image) // Placeholder image resource
                 .error(R.drawable.error_image) // Error image resource if loading fails
                 .into(holder.titleImage)
@@ -36,12 +35,12 @@ class ProductListItemAdapter ( var productList: List<ProductListItem>): Recycler
         }
 
         holder.product_name.text= currentItem.product_name
-        holder.product_price.text= currentItem.product_price.toInt().toString()
-        holder.product_tax.text= currentItem.product_tax.toInt().toString()
+        holder.product_price.text= currentItem.price.toString()
+        holder.product_tax.text= currentItem.tax.toString()
     }
 
     override fun getItemCount(): Int {
-        return productList.size
+        return filteredList.size
     }
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val titleImage: ShapeableImageView = itemView.findViewById(R.id.title_image)

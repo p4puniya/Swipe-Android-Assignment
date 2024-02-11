@@ -10,6 +10,7 @@ import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ import com.example.swipeassignment.utils.NetworkUtils
 import com.example.swipeassignment.viewmodels.MainViewModel
 import com.example.swipeassignment.viewmodels.MainViewModelFactory
 import com.google.android.material.color.ThemeUtils
+import kotlinx.coroutines.launch
 
 class ProductListFragment : Fragment() {
 
@@ -40,7 +42,6 @@ class ProductListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         // Initialize views
         recyclerView = view.findViewById(R.id.recyclerView)
         connectivityStatus = view.findViewById(R.id.connectivityStatus)
@@ -50,17 +51,7 @@ class ProductListFragment : Fragment() {
         productListAdapter = ProductListItemAdapter(emptyList()) // Initially, pass an empty list
         recyclerView.adapter = productListAdapter
 
-        // Observe LiveData in ViewModel
-        val repository = (requireActivity().application as ProductApplication).productRepository
-        val mainViewModel = ViewModelProvider(
-            this,
-            MainViewModelFactory(repository)
-        ).get(MainViewModel::class.java)
-
-        mainViewModel.products.observe(viewLifecycleOwner, { productList ->
-            // Update the adapter with the new data
-            productListAdapter.updateData(productList)
-        })
+        updateData()
 
         // Handle SearchView events
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -87,4 +78,19 @@ class ProductListFragment : Fragment() {
             connectivityStatus.visibility= View.VISIBLE
         }
     }
+
+    private fun updateData() {
+
+        // Observe LiveData in ViewModel
+        val repository = (requireActivity().application as ProductApplication).productRepository
+        val mainViewModel = ViewModelProvider(
+            this,
+            MainViewModelFactory(repository)
+        ).get(MainViewModel::class.java)
+
+        mainViewModel.products.observe(viewLifecycleOwner, { productList ->
+            productListAdapter.updateData(productList)
+        })
+    }
+
 }
