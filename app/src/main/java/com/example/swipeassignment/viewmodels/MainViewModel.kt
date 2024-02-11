@@ -1,7 +1,6 @@
 package com.example.swipeassignment.viewmodels
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.swipeassignment.models.ProductListItem
@@ -16,8 +15,6 @@ class MainViewModel (private val repository: ProductRepository): ViewModel(){
             repository.getProducts()
         }
     }
-    //for spinner in page 2
-    val selectedProductType = MutableLiveData<String>()
         val products: LiveData<List<ProductListItem>>
         get()= repository.products
 
