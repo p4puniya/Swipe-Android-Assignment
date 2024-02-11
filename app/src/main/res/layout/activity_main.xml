@@ -18,7 +18,18 @@
         app:fabSize="normal"
         android:background="@drawable/floating_action_button"/>
 
-<!--     res/layout/example_activity.xml -->
+    <!--     res/layout/example_activity.xml -->
+    <ImageButton
+        android:id="@+id/refresh_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/search_view_background"
+        android:src="@drawable/outline_change_circle_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container_view"
         android:name="com.example.swipeassignment.ProductListFragment"

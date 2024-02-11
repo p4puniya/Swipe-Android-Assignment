@@ -52,8 +52,8 @@ class AddProductFragment : BottomSheetDialogFragment() {
         val result= RetrofitHelper.create()
         lifecycleScope.launch{
             try {
-                val call = result.getResponse(productName,productType,sellingPrice,taxRate)
-                Log.d("Response from URL", call.toString())
+                val response = result.getResponse(productName,productType,sellingPrice,taxRate)
+                Log.d("Response from URL", response.toString())
                     showToast("Data Submitted Successfully")
                     showToast("Reload the app to see changes")
             }catch (e: Exception){

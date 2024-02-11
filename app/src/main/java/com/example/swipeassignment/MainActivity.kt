@@ -2,6 +2,9 @@ package com.example.swipeassignment
 
 import android.os.Bundle
 import android.util.Log
+import android.util.MonthDisplayHelper
+import android.widget.ImageButton
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -20,7 +23,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var mainViewModel: MainViewModel
     lateinit var fabOpenBottomSheetFragment: FloatingActionButton
     lateinit var bottomSheetFragment: AddProductFragment
-    lateinit var productAPI: ProductAPI
+    lateinit var reloadButton: ImageButton
+    lateinit var retrofitHelper: RetrofitHelper
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,6 +38,13 @@ class MainActivity : AppCompatActivity() {
         fabOpenBottomSheetFragment.setOnClickListener{
             bottomSheetFragment= AddProductFragment()
             bottomSheetFragment.show(supportFragmentManager,"BSDialogFragment")
+        }
+        reloadButton= findViewById(R.id.refresh_button)
+        reloadButton.setOnClickListener{
+            //To-do: Make the Reload Button Work :)
+            Toast.makeText(this, "Work in Progress", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Do a manual restart to see changes", Toast.LENGTH_LONG).show()
+
         }
 
         //Network Connection Display
