@@ -9,7 +9,7 @@ features like product search, easy navigation, and efficient data entry.
 
 
 
-### Product Listing Screen(Basic Fragment)
+### 1. Product Listing Screen(Basic Fragment)
 - **Features:**
   - Display a comprehensive list of products sourced from the Swipe API endpoint.
   - User-friendly product search functionality.
@@ -23,7 +23,7 @@ features like product search, easy navigation, and efficient data entry.
 - **API Integration:**
   - GET Request: https://app.getswipe.in/api/public/get
     
-### Add Product Screen (BottomSheetDialogFragment)
+### 2. Add Product Screen (BottomSheetDialogFragment)
 - **Features:**
   - Streamlined process for adding new products with the following details:
     - Product type selection from a curated list of options.
