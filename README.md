@@ -20,8 +20,7 @@ features like product search, easy navigation, and efficient data entry.
 
 - **API Integration:**
   - GET Request: https://app.getswipe.in/api/public/get
-  - POST Request: https://app.getswipe.in/api/public/add
-
+    
 ### Add Product Screen (BottomSheetDialogFragment)
 - **Features:**
   - Streamlined process for adding new products with the following details:
@@ -31,13 +30,13 @@ features like product search, easy navigation, and efficient data entry.
   - Input field validation guarantees accuracy in data entry, including product type selection, non-empty product name, and proper formatting for selling price and tax.
 
 - **API Integration:**
-  - Implements a POST method to submit new product data to the API endpoint: https://app.getswipe.in/api/public/add.
+  - POST Request: https://app.getswipe.in/api/public/add
 
 - **User Interface:**
   - Employs an intuitive and visually appealing interface to enhance the user experience.
 
-- **Feedback and Notifications:**
-  - Provides clear and concise feedback to users upon completing actions, utilizing dialogs and notifications.
+- **Feedback to the User:**
+  - Provides clear and concise feedback to users upon completing actions, utilizing dialogs(Toast Messages).
 
 ## Getting Started
 Follow these steps to set up the Swipe Android App locally on your development environment.
