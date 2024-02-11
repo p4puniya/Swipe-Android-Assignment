@@ -21,7 +21,7 @@ class ProductListItemAdapter ( var productList: List<ProductListItem>): Recycler
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val currentItem= productList[position]
+        val currentItem= filteredList[position]
 
         // Load product image using Glide
         if (!currentItem.product_image.isNullOrBlank()) {
@@ -41,7 +41,7 @@ class ProductListItemAdapter ( var productList: List<ProductListItem>): Recycler
     }
 
     override fun getItemCount(): Int {
-        return productList.size
+        return filteredList.size
     }
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val titleImage: ShapeableImageView = itemView.findViewById(R.id.title_image)
