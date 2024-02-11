@@ -1,18 +1,26 @@
 package com.example.swipeassignment
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
+import com.example.swipeassignment.api.ProductAPI
+import com.example.swipeassignment.api.RetrofitHelper
+import com.example.swipeassignment.models.ResponseFromURL
 import com.example.swipeassignment.utils.NetworkConnection
 import com.example.swipeassignment.viewmodels.MainViewModel
 import com.example.swipeassignment.viewmodels.MainViewModelFactory
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.coroutines.launch
+import retrofit2.Call
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var mainViewModel: MainViewModel
     lateinit var fabOpenBottomSheetFragment: FloatingActionButton
     lateinit var bottomSheetFragment: AddProductFragment
+    lateinit var productAPI: ProductAPI
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,18 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel= ViewModelProvider(this, MainViewModelFactory(repository)).get(MainViewModel::class.java)
 
-        mainViewModel.products.observe(this, {
-//            Log.d("View Model Works", it.toString())
-//            Toast.makeText(this@MainActivity, it.size.toString(), Toast.LENGTH_SHORT).show()
-        })
-
         //Open Bottom Sheet fragment
         fabOpenBottomSheetFragment = findViewById(R.id.floating_action_button)
         fabOpenBottomSheetFragment.setOnClickListener{
             bottomSheetFragment= AddProductFragment()
             bottomSheetFragment.show(supportFragmentManager,"BSDialogFragment")
         }
-
 
         //Network Connection Display
         val networkConnection= NetworkConnection(applicationContext)
@@ -45,8 +47,5 @@ class MainActivity : AppCompatActivity() {
                 .replace(R.id.fragment_container_view, fragment)
                 .commit()
         }
-
-
     }
-
 }
