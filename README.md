@@ -26,7 +26,6 @@ features like product search, easy navigation, and efficient data entry.
   - Streamlined process for adding new products with the following details:
     - Product type selection from a curated list of options.
     - Input fields for product name, selling price, and tax rate ensure comprehensive data entry.
-    - Optional image selection with support for JPEG or PNG formats and a 1:1 aspect ratio.
   - Input field validation guarantees accuracy in data entry, including product type selection, non-empty product name, and proper formatting for selling price and tax.
 
 - **API Integration:**
