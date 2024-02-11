@@ -17,6 +17,8 @@ features like product search, easy navigation, and efficient data entry.
   - Quick navigation to the Add Product screen via a dedicated button.
   - Dynamic loading of product images from provided URLs or default images when URLs are empty.
   - Offline caching using Room for uninterrupted access to cached data in the absence of internet connectivity.
+  - Gives a visual cue to the user when disconnected.
+  - Implements modern technologies and best practicies such as MVVM architecture, Retrofit for REST, and Lifecycle for Kotlin Coroutines.
 
 - **API Integration:**
   - GET Request: https://app.getswipe.in/api/public/get
@@ -47,9 +49,6 @@ Follow these steps to set up the Swipe Android App locally on your development e
 
 2. Open the project in Android Studio.
 3. Build and run the app on your Android device or emulator.
-
-## Important Points
-- Implements modern technologies and best practicies such as MVVM architecture, Retrofit for REST, and Lifecycle for Kotlin Coroutines.
 
 ## Dependencies
 List of major dependencies used in the project:
