@@ -48,10 +48,10 @@ class AddProductFragment : BottomSheetDialogFragment() {
         val productType: String = spinnerProductType.selectedItemPosition.toString().trim()
         val sellingPrice: Double = editTextSellingPrice.text.toString().toDouble()
         val taxRate: Double = editTextTaxRate.text.toString().toDouble()
-
         val result= RetrofitHelper.create()
         lifecycleScope.launch{
             try {
+
                 val response = result.getResponse(productName,productType,sellingPrice,taxRate)
                 Log.d("Response from URL", response.toString())
                     showToast("Data Submitted Successfully")

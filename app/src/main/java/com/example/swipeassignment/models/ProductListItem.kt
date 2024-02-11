@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey
 data class ProductListItem(
     @PrimaryKey(autoGenerate = true)
     val product_Id: Int,
-    val product_image: String?= null,
-    val product_price: Double,
+    val image: String?= null,
+    val price: Double,
     val product_name: String,
     val product_type: String,
-    val product_tax: Double
+    val tax: Double
 )

@@ -10,6 +10,7 @@ import android.widget.SearchView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -19,6 +20,7 @@ import com.example.swipeassignment.utils.NetworkUtils
 import com.example.swipeassignment.viewmodels.MainViewModel
 import com.example.swipeassignment.viewmodels.MainViewModelFactory
 import com.google.android.material.color.ThemeUtils
+import kotlinx.coroutines.launch
 
 class ProductListFragment : Fragment() {
 
@@ -51,47 +53,7 @@ class ProductListFragment : Fragment() {
 
         updateData()
 
-//        // Handle SearchView events
-//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-//            override fun onQueryTextSubmit(query: String?): Boolean {
-//                Log.d("SearchView", "Query Submitted: $query")
-//                // Handle query submission if needed
-//                return true
-//            }
-//            override fun onQueryTextChange(newText: String?): Boolean {
-//                Log.d("SearchView", "Text changed: $newText")
-//                // Filter data based on the search query
-//                productListAdapter.filterData(newText.orEmpty())
-//                return true
-//            }
-//        })
-
-        // Retrieve the boolean value from the arguments
-        val booleanValue = arguments?.getBoolean("BOOLEAN_KEY", false) ?: false
-
-        // Now you can use the boolean value in the fragment
-        if (booleanValue) {
-            connectivityStatus.visibility = View.INVISIBLE
-        } else {
-            connectivityStatus.visibility= View.VISIBLE
-        }
-    }
-
-    public fun updateData() {
-
-        // Observe LiveData in ViewModel
-        val repository = (requireActivity().application as ProductApplication).productRepository
-        val mainViewModel = ViewModelProvider(
-            this,
-            MainViewModelFactory(repository)
-        ).get(MainViewModel::class.java)
-
-        mainViewModel.products.observe(viewLifecycleOwner, { productList ->
-            productListAdapter.updateData(productList)
-        })
-    }
-
-    private fun searchView(){
+        // Handle SearchView events
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Log.d("SearchView", "Query Submitted: $query")
@@ -105,5 +67,30 @@ class ProductListFragment : Fragment() {
                 return true
             }
         })
+
+        // Retrieve the boolean value from the arguments
+        val booleanValue = arguments?.getBoolean("BOOLEAN_KEY", false) ?: false
+
+        // Now you can use the boolean value in the fragment
+        if (booleanValue) {
+            connectivityStatus.visibility = View.INVISIBLE
+        } else {
+            connectivityStatus.visibility= View.VISIBLE
+        }
     }
+
+    private fun updateData() {
+
+        // Observe LiveData in ViewModel
+        val repository = (requireActivity().application as ProductApplication).productRepository
+        val mainViewModel = ViewModelProvider(
+            this,
+            MainViewModelFactory(repository)
+        ).get(MainViewModel::class.java)
+
+        mainViewModel.products.observe(viewLifecycleOwner, { productList ->
+            productListAdapter.updateData(productList)
+        })
+    }
+
 }
