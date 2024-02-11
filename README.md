@@ -9,7 +9,7 @@ features like product search, easy navigation, and efficient data entry.
 
 
 
-### Product Listing Screen
+### Product Listing Screen(Basic Fragment)
 - **Features:**
   - Display a comprehensive list of products sourced from the Swipe API endpoint.
   - User-friendly product search functionality.
@@ -47,6 +47,9 @@ Follow these steps to set up the Swipe Android App locally on your development e
 
 2. Open the project in Android Studio.
 3. Build and run the app on your Android device or emulator.
+
+## Important Points
+- Implements modern technologies and best practicies such as MVVM architecture, Retrofit for REST, and Lifecycle for Kotlin Coroutines.
 
 ## Dependencies
 List of major dependencies used in the project:
