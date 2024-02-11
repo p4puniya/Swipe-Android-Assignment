@@ -6,8 +6,8 @@ It provides a seamless user experience for viewing and managing products, incorp
 features like product search, easy navigation, and efficient data entry.
 
 ## Screens
-[![Swipe Assignment Video]]({https://drive.google.com/file/d/1icE1NMjI_UiJEeQHSME-LPm867LOMgdy/view?usp=drive_link} "Swipe Assignment")
 
+ [Center](https://github.com/p4puniya/Swipe-Android-Assignment/assets/60355338/23f145e6-9f30-410e-9d3b-8b27dd14f873)
 
 ### 1. Product Listing Screen(Basic Fragment)
 - **Features:**
