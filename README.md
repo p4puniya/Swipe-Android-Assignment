@@ -6,7 +6,7 @@ It provides a seamless user experience for viewing and managing products, incorp
 features like product search, easy navigation, and efficient data entry.
 
 ## Screens
-
+[![Swipe Assignment Video]]({https://drive.google.com/file/d/1icE1NMjI_UiJEeQHSME-LPm867LOMgdy/view?usp=drive_link} "Swipe Assignment")
 
 
 ### 1. Product Listing Screen(Basic Fragment)
